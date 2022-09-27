@@ -1,0 +1,11 @@
+library(RMySQL)
+con = dbConnect(MySQL(), user = 'root', password = '', dbname = 'PS2_affitra', host = 'localhost')
+dbListTables(con) 
+myQuery <- "select * from prakstataf1;"
+df <- dbGetQuery(con, myQuery)
+
+
+library(dplyr)
+df<-filter(df,gender=="L")
+print(df)
+
